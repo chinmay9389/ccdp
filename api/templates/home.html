@@ -1,0 +1,38 @@
+<html>
+<title>Home</title>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+<link rel="shortcut icon" type="image/jpg" href="../static/favicons/home.ico"/>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="topnav">
+  <a style="font-family: Arimo;" class="active" href="{{ url_for('home')}}">Home</a>
+  <a style="font-family: Arimo;" href="{{ url_for('duration')}}">Duration</a>
+  <a style="font-family: Arimo;" href="{{ url_for('cost')}}">Cost</a>
+  <a style="font-family: Arimo;" href="works.html">Manual</a>
+  <a style="margin-left: 63.8%; font-family: Arimo;" href="{{ url_for('about')}}">About Us</a>
+</div>
+<div class="flex-container">
+  <div class="box"><img class="image" src="../static/gifs/duration.gif">
+  <div class="middle">
+  <a style=" color: black; font-size: 50px; padding: 5px; text-decoration: none;" href="/duration.html">Predict Duration</a>
+  </div>
+  </div>
+  <div class="box"><img class="image"  src="../static/gifs/cost2.gif">
+    <div class="middle">
+    <a style=" color: black; font-size: 50px; padding: 5px; text-decoration: none;" href="/cost.html">Predict Cost</a>
+  </div>
+  </div>
+    <div class="box"><img class="image" src="../static/gifs/manual.gif">
+  <div class="middle">
+  <a style=" color: black; font-size: 50px; padding: 5px; text-decoration: none;" href="/works.html">Manual</a>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>

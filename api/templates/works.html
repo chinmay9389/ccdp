@@ -1,0 +1,105 @@
+<html>
+<title>Working</title>
+<head>
+<link rel="stylesheet" href="../static/works.css">
+<link rel="shortcut icon" type="image/jpg" href="../static/favicons/wrench.png"/>
+<link href='https://fonts.googleapis.com/css?family=Fantasy' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="topnav">
+  <a href="{{ url_for('home')}}">Home</a>
+  <a href="{{ url_for('duration')}}">Duration</a>
+  <a href="{{ url_for('cost')}}">Cost</a>
+  <a class="active" href="works.html">Manual</a>
+  <a style="margin-left: 64.5%;" href="{{ url_for('about')}}">About Us</a>
+</div>
+<section class="stacking-slide">
+<div style="margin-top: 100px" class="box">
+<h1><u>To Calculate Duration and Cost</u></h1>
+<p>
+<ol>
+<li>Click predict duration.</li>
+<li>Enter Builtup area, No of Floors, No of Workers and click predict.</li>
+<li>Entry will be shown in table.</li>
+<li>repeat step 2 to calculate for new configuration.</li>
+<li>Click on calculate under cost to calculate the cost of the project.</li>
+<li>select location, type of building, type and quality of work and click on calculate.</li>
+<li>Cost for the given configuration will be given considering the time factor of no of workers.</li>
+<li>It will also display the materials required.</li>
+<li>Click duration again from navbar to return to duration page.</li>
+<li>Here you'll observe the cost has been updated from TBC (To be Calculated) to the cost</li><br><br>
+NOTE: *Use the navbar to switch between home, duration, cost and about us page*
+</ol>
+</p>
+<br><br><br>
+</div>
+</section>
+<section class="stacking-slide">
+<div style="margin-top: 100px" class="box">
+<h1><u>To Calculate Only Cost</u></h1>
+<p>
+<ol>
+<li>Click predict cost</li>
+<li>Enter Builtup area, no of floors,location, type of building, type and quality of work and click on calculate.</li>
+<li>This will display the Cost for the given configuration.</li>
+<li>It will also display the materials required.</li><br><br>
+NOTE: *Use the navbar to switch between home, duration, cost and about us page*
+</ol>
+</p>
+<br><br><br>
+</div>
+</section>
+<section class="stacking-slide">
+<div style="margin-top: 100px" class="box">
+<h1><u>Methodology</u></h1>
+<p>
+<ol>
+<li>We gathered data required for constuction schedule prediction and raw material calculation as well as cost for the projects.</li>
+<li>After analysing the relations between the data we created the final datasets by performing data manipulations.</li>
+<li>We first created the "Duration prediction" model by using the dataset and testing it on various algorithms. We selected "Multiple Linear Regression" as our final model.</li>
+<li>We then created the "Cost prediction and raw material calculator" module by using the data obtained in our prior phases.</li>
+<li>We then created the "hybrid Cost prediction" module which uses the time factor to predict the cost.</li>
+<li>Then the modules were deployed on the web using Python Flask and front end technologies.</li>
+<li>Database connectivity was added for helping create more data for further research purposes.</li>
+</ol>
+</p>
+<br><br><br>
+</div>
+</section>
+<section class="stacking-slide">
+<div style="margin-top:-30px" class="box">
+<h1><u>Machine Learning</u></h1>
+<p><ul><li>Machine Learning is an Application of Artificial Intelligence (AI) it gives devices the ability to learn from their experiences and improve their self without doing any coding. For Example, when you shop from any website it’s shows related search like:- People who bought also saw this.</li></ul></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HcqpanDadyQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><br><br>
+</div>
+</section>
+<section class="stacking-slide">
+<div style="margin-top:-30px" class="box" >
+<h1 style="font-size: 30px"><u>Linear regression</u></h1>
+<p><ul><li style="font-size: 18px">Linear Regression is a machine learning algorithm based on supervised learning. It performs a regression task. Regression models a target prediction value based on independent variables. It is mostly used for finding out the relationship between variables and forecasting.</li></ul></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iIUq0SqBSH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 style="font-size: 30px"><u>Multiple linear regression</u></h1>
+<p><ul><li style="font-size: 18px">In this method there is 1 dependent variable (value which we're predicting) , 2+ independent variables.</li></ul></p><br>
+</div>
+</section>
+<section class="stacking-slide">
+<div class="box">
+<h1><u>Technologies Used</u></h1>
+<div class="img">
+<img src="../static/images/python.jpg" width="200" height="200">
+<img src="../static/images/flask.jpg" width="200" height="200" style="margin-left:200px">
+<img src="../static/images/web.png" width="400" height="200" style="margin-left: 100px">
+</div>
+<div class="img" style="margin-top: 50px; margin-left:100px;">
+<img src="../static/images/ml.jpg" width="200" height="200">
+<img src="../static/images/jquery.png" width="200" height="200" style="margin-left: 100px">
+<img src="../static/images/mysql.png" width="200" height="200" style="margin-left: 100px">
+</div>
+</div>
+</section>
+</body>
+</html>

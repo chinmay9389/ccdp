@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Construction Cost</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='cost.css') }}">
+<link rel="shortcut icon" type="image/jpg" href="../static/favicons/rupee2.ico"/>
+</head>
+
+<body>
+<div class="topnav">
+  <a href="{{ url_for('home')}}">Home</a>
+  <a href="{{ url_for('duration')}}">Duration</a>
+  <a class="active" href="/cost_dur/i">Cost</a>
+  <a href="works.html">Manual</a>
+  <a style="margin-left: 68%" href="{{ url_for('about')}}">About Us</a>
+</div>
+<div class="container">
+<div class="flex-container">
+  <div class="box">
+	<h1>Calculate Cost</h1>
+
+    <form action="{{ url_for('calC_D')}}" method="POST">
+        <input type="hidden" name="id" value="{{i}}"/>
+    	<input type="text" name="Builtup area" placeholder="Builtup area" id="Builtup_area" value="{{Builtup_area}}"/>
+    	<input type="text" name="No of Floors" placeholder="No of Floors" id="No_of_Floors" value="{{No_of_Floors}}"/>
+    	<input type="hidden" name="No of Workers" placeholder="No of Workers" id="No_of_Workers" value="{{No_of_Workers}}" />
+    	<!--<input type="text" style="display:none" placeholder="months" name="months" id="months" value="{{months}}" />--><br>
+    	<div id="loc"><a style="font-size: 20px;">Selected Location:{{location}}</a></div>
+    	<div id="build"><a style="font-size: 20px;">Selected Building:{{build}}</a></div>
+    	<div id="wrk"><a style="font-size: 20px;">Selected Work:{{wrk}}</a></div>
+    	<div id="qlty"><a style="font-size: 20px;">Selected Quality:{{qlty}}</a></div>
+    	<div class="box3">
+        <select id="location" name="location" required="required">
+        {%block select %}
+        <option value="0">Select a location:</option>
+    	{% for i in location1: %}
+          <option value="{{i[0]}}">{{i[1]}}</option>
+            {% endfor %}
+        </select>
+
+
+        <select id="type" name="type" style="margin-top:10px" required="required">
+        <option value="0">Select type of Building:</option>
+        <!--<option value="1">Commericial</option>-->
+        <option value="2">Residential</option>
+        </select>
+
+        <select id="work" name="work" style="margin-top:10px">
+        <option value="0">Select type of work:</option>
+        <option value="1">materials + labour-outsourced</option>
+        <option value="2">only labour-outsourced</option>
+        </select>
+
+        <select id="quality" name="quality" style="margin-top:10px">
+        <option value="0">Select Quality:</option>
+        <option value="1">Average Quality</option>
+        <option value="2">Good Quality</option>
+        <option value="3">Best Quality</option>
+        </select>
+        {% endblock %}
+          </div>
+        <button type="submit" id="btn" class="btn btn-primary btn-block btn-large" style="margin-top:230px" position="absolute">Calculate</button>
+    </form>
+
+   <br>
+   <a style="font-size: 18px;">{{ calc_text }}</a>
+
+ </div>
+</div>
+<div class="flex-container2">
+<div class="box">
+
+    <form id="my-form" action="{{ url_for('calC')}}" method="POST" style="margin-left: 39%; padding:30px; max-height:300px; background-color: rgba(0, 0, 0, 0);">
+        <table>
+            <thead>
+                <tr>
+                    <th>S. no.</th>
+                    <th>Raw Materials</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%block body %}
+                {% for i in records: %}
+                <tr>
+                    <td>{{i[0]}}</td>
+                    <td>{{i[1]}}</td>
+                    <td>{{values[i[0]-1]}}</td>
+                </tr>
+                {% endfor %}
+                {% endblock %}
+            </tbody>
+        </table>
+    </form>
+</div>
+<div id="box2" class="box2">
+   *Assumptions:<br><br>
+1. Load bearing brick wall thickness of 23cm (9 inches)<br> in cement mortar 1:6<br><br>
+2. Plaster in cement mortar 1:4
+</div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../static/js/cost.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+.stacking-slide {
+	height: 700px;
+	width: 100%;
+	position: sticky;
+	top: 60px;
+	border-radius = 25px;
+}
+
+.stacking-slide:nth-last-child(1) {
+	height: 100vh;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+
+}
+
+.stacking-slide {
+	padding: 3rem;
+	box-shadow: 0 0px 50px -12px rgba(0, 0, 0, 1);
+	border-radius = 25px;
+}
+
+.stacking-slide:nth-child(0) {
+	background-color: #ffc2e0;
+
+}
+
+.stacking-slide:nth-child(1) {
+	background-color: #ffc2c2;
+}
+
+.stacking-slide:nth-child(2) {
+	background-color: #ADD8E6;
+}
+
+.stacking-slide:nth-child(3) {
+	background-color: #D2691E;
+}
+
+.stacking-slide:nth-child(4) {
+	background-color: #F4A460;
+}
+
+.stacking-slide:nth-child(5) {
+	background-color:	#7FFFD4;
+}
+
+.stacking-slide:nth-child(6) {
+	background-color: #c2ffe0;
+}
+
+.stacking-slide:nth-child(7) {
+	background-color: #c2ffff;
+}
+
+.stacking-slide:nth-child(8) {
+	background-color: #c2e0ff;
+}
+
+.stacking-slide:nth-child(9) {
+	background-color: #c2c2ff;
+}
+
+.stacking-slide:nth-child(10) {
+	background-color: #e0c2ff;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+
+.stacking-slide .box {
+	position: block;
+	width:75%;
+	max-height:800px;
+	margin-left: 200px;
+	background-color: transparent;
+	border-collapse: collapse;
+	overflow: hidden;
+}
+
+.stacking-slide .box h1{
+	text-align: center;
+	font-family: Fantasy;
+	font-weight: 100;
+	font-size: 40px;
+}
+
+.stacking-slide .box p, ol, li{
+	font-family: open-sans;
+	font-weight: 100;
+	font-size: 20px;
+}
+
+
+body {
+	background-color: #9932CC;
+    background-repeat: repeat;
+    background-size: 100% 100%;
+	overflow-x: hidden;
+	overflow-y:scroll;
+	z-index:1
+
+}
+
+.flex-container {
+  display: sticky;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+
+}
+
+.flex-container2 {
+  display: block;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+
+}
+
+.topnav {
+  position: fixed;
+  overflow: hidden;
+  background-color: #4B0082;
+  width: 102%;
+  margin: -10px;
+  z-index:2
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color: #D8BFD8;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #8A2BE2;
+  color: white;
+}
+
+iframe {
+	margin-left: 300px;
+	border-radius: 25px;
+}
+
+.img {
+	display: flex;
+}

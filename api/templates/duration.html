@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Construction Duration</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Stencil' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='duration.css') }}">
+<link rel="shortcut icon" type="image/jpg" href="../static/favicons/favicon.ico"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="topnav">
+  <a href="{{ url_for('home')}}">Home</a>
+  <a class="active" href="{{ url_for('duration')}}">Duration</a>
+  <a href="{{ url_for('cost')}}">Cost</a>
+  <a href="works.html">Manual</a>
+  <a style="margin-left: 68.5%" href="{{ url_for('about')}}">About Us</a>
+</div>
+
+<div class="container">
+<div class="flex-container">
+  <div class="box">
+	<h1>Predict Duration</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predictD')}}" method="POST">
+    	<input type="number" name="Builtup area" placeholder="Builtup area" id="Builtup_area" value="{{Builtup_area}}" min="999" max="5000" required="required" />
+        <input type="number" name="No of Floors" placeholder="No of Floors" id="No_of_Floors" value="{{No_of_Floors}}" min="1" max="4" required="required" />
+        <input type="number" name="No of Workers" placeholder="No of Workers" id="No_of_Workers" value="{{No_of_Workers}}" min="10" max="100" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">PREDICT</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <br><br>
+
+ </div>
+</div>
+<div style="margin-top:30px" class="flex-container2">
+<div class="box">
+<h1 style="margin-left: 80px;">Your Inputs </h1>
+
+    <form id="my-form" action="{{ url_for('submitD')}}" method="POST" style="margin-left: 1%; max-height:300px; background-color: rgba(0, 0, 0, 0); padding: 20px;">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 90px;">S. no.</th>
+                    <th style="width: 100px;">Builtup Area</th>
+                    <th style="width: 100px;">No of Floors</th>
+                    <th style="width: 100px;">No of Workers</th>
+                    <th style="width: 50px;">Months</th>
+                    <th style="width: 100px;">Cost of Construction</th>
+                    <th style="width: 90px;">Graph</th>
+                    <th style="width: 50px;">Cost Calculator</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% block body %}
+                {% for i in breakdown: %}
+                <tr>
+                    <td>{{i[0]}}</td>
+                    <td>{{i[1]}}</td>
+                    <td>{{i[2]}}</td>
+                    <td>{{i[3]}}</td>
+                    <td>{{i[4]}}</td>
+                    <td>{{i[8]}}</td>
+                    <td style="width: 200px;"><a href="/duration.html/{{i[0]}}" id="mybtn" class="hyper">PLOT</a> | <a href="#"  data-toggle="modal" data-target="#myModal" class="mybtn hyper">SHOW</td>
+                    <td><a href="/cost_dur/{{i[0]}}" id="mybtn2" class="hyper2">CALCULATE</a></td>
+
+
+
+                </tr>
+{% endfor %}
+                {% endblock %}
+            </tbody>
+        </table>
+        <br><a style="margin-right:-1%">{{text}}</a>
+    </form>
+    </div>
+    <br>
+    <div class="box2">
+     <button type="submit" class="btn btn-primary btn1-block btn-large" form="my-form">SUBMIT ALL</button>
+     <button type="submit" class="btn btn-primary btn2-block btn-large" form="my-form2">CLEAR</button>
+     <form action="{{ url_for('clear') }}" method="POST" id="my-form2" style=" display:none; "></form><br><br>
+    </div>
+
+
+
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="container2">
+    <img id='modal-img' src="{{ url_for('static', filename='plot1.jpg') }}" width="800" height="600"><br>
+    <img id='modal-img' src="{{ url_for('static', filename='plot2.jpg') }}" width="800" height="600"><br>
+    <img id='modal-img' src="{{ url_for('static', filename='plot3.jpg') }}" width="800" height="600"><br>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<!--<script src="../static/js/duration.js"></script>-->
+<script src="../static/js/duration2.js"></script>
+</body>
+</html>
